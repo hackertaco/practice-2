@@ -1,17 +1,18 @@
 import React from "react";
 import Counter from "../components/Counter";
 import { useSelector, useDispatch } from "react-redux";
-import { increase, decrease } from "../modules/counter";
+import { decreaseAsync, increaseAsync } from "../modules/counter";
+
 function CounterContainer() {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const number = useSelector((state) => state.counter);
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const dispatch = useDispatch();
   const onIncrease = () => {
-    dispatch(increase());
+    dispatch(increaseAsync());
   };
   const onDecrease = () => {
-    dispatch(decrease());
+    dispatch(decreaseAsync());
   };
   return (
     <Counter number={number} onIncrease={onIncrease} onDecrease={onDecrease} />
