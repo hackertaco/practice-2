@@ -21,7 +21,9 @@ const CLEAR_POST = "CLEAR_POST";
 //따로 액션생성함수는 안만들었당
 export const getPosts = createPromiseThunk(GET_POSTS, postsAPI.getPosts);
 export const getPost = createPromiseThunkById(GET_POST, postsAPI.getPostById);
-
+export const goToHome = () => (dispatch, getState, { history }) => {
+  history.push("/");
+};
 // (id) => async (dispatch) => {
 //   dispatch({ type: GET_POST, meta: id });
 //   try {
